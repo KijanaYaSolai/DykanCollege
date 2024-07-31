@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator for Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #qrcode {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student QR Code Generator</h2>
+        <input type="text" id="fullName" placeholder="Full Name"><br>
+        <input type="text" id="startDuration" placeholder="Start Duration"><br>
+        <input type="text" id="endDuration" placeholder="End Duration"><br>
+        <input type="text" id="score" placeholder="General Score"><br>
+        <button onclick="generateQRCode()">Generate QR Code</button><br>
+        <div id="qrcode"></div>
+        <button id="downloadButton" onclick="downloadQRCode()" style="display:none;">Download QR Code</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script>
+        function generateQRCode() {
+            // Get input values
+            const fullName = document.getElementById('fullName').value;
+            const startDuration = document.getElementById('startDuration').value;
+            const endDuration = document.getElementById('endDuration').value;
+            const score = document.getElementById('score').value;
+            
+            // Combine data into a single string
+            const data = `Name: ${fullName}\nStart: ${startDuration}\nEnd: ${endDuration}\nScore: ${score}`;
+            
+            // Generate QR code
+            document.getElementById('qrcode').innerHTML = '';
+            new QRCode(document.getElementById('qrcode'), {
+                text: data,
+                width: 128,
+                height: 128,
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // Show download button
+            document.getElementById('downloadButton').style.display = 'inline-block';
+        }
+
+        function downloadQRCode() {
+            const qrCodeCanvas = document.querySelector('#qrcode canvas');
+            const qrCodeDataURL = qrCodeCanvas.toDataURL('image/jpeg');
+            const link = document.createElement('a');
+            link.href = qrCodeDataURL;
+            link.download = 'qrcode.jpg';
+            link.click();
+        }
+    </script>
+</body>
+</html>
