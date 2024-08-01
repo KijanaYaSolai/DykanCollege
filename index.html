@@ -1,16 +1,11 @@
-Hello
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded QR Codes Page</title>
+    <title>Open Link with Button</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -18,15 +13,32 @@ Hello
             height: 100vh;
             background-color: #f0f0f0;
         }
-        iframe {
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
             border: none;
-            width: 80%;
-            height: 80%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://qr-codes.io/mzV0RV" title="QR Codes Page"></iframe>
+    <div class="container">
+        <button onclick="openCertificate()">CERTIFICATE</button>
+    </div>
+
+    <script>
+        function openCertificate() {
+            window.location.href = 'https://qr-codes.io/mzV0RV';
+        }
+    </script>
 </body>
 </html>
