@@ -3,100 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <img src="dykanlogo.png" alt="Dykan College Logo" class="logo">
+	<img src="dykanlogo.png" alt="Dykan College Logo" class="logo">
     <title>DYKAN COLLEGE</title>
     <style>
         body {
-            margin: 0;
-            font-family: Alfa Slab One, serif;
-            background-color: #ffff;
-        }
-        header, footer {
-            background-color: #8e0c00;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
-        .logo {
-            display: block;
-            margin: 0 auto;
-            max-width: 150px; /* Adjust size as needed */
-        }
-        .content {
-            text-align: center;
-            padding: 50px 20px;
-        }
-        footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-        .footer-content {
-            margin: 0;
-            padding: 10px 0;
-        }
-	    .styled-label {
+    margin: 0;
+    font-family: Alfa Slab One, serif;
+    background-color: #ffff;
+}
+
+header, footer {
+    background-color: #8e0c00;
+    color: white;
+    text-align: center;
+    padding: 20px; /* Reduced padding */
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 150px; /* Adjust size as needed */
+}
+
+.content {
+    text-align: center;
+    padding: 30px 20px; /* Reduced padding */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    margin: 0;
+    padding: 5px 0; /* Reduced padding */
+}
+
+.styled-label-container {
+    text-align: center; /* Center the content */
+    margin: 10px 0; /* Reduced margin */
+}
+
+.styled-label {
     font-style: italic;
     color: #a0a0a0; /* Slightly grey color */
 }
-        .student-info {
-            background-color: #f4f4f4; /* Light background color */
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            width: 80%; /* Adjust width as needed */
-            max-width: 600px; /* Maximum width to maintain the rectangular shape */
-            margin: 0 auto; /* Center horizontally */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Center text in student-info box */
-        }
-        .student-info h2 {
-            margin-top: 0;
-            color: #8e0c00; /* Match header/footer color */
-            border-bottom: 2px solid #8e0c00; /* Underline effect */
-            padding-bottom: 10px;
-        }
-        .student-info .info-row {
-            display: flex;
-            justify-content: center; /* Center align items horizontally */
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .student-info .info-row label {
-            margin-right: 20px;
-            font-weight: bold;
-            color: #000000; /* Match header/footer color */
-        }
-        .student-info .bordered-label {
-            border: 1px solid #8e0c00; /* Match header/footer color */
-            padding: 5px 10px;
-            border-radius: 4px;
-            display: inline-block;
-            text-align: center; /* Center text within the label */
-            min-width: 200px; /* Ensure labels have a minimum width for consistency */
-        }
-        .button-container {
-            text-align: center; /* Center the button container */
-            margin-top: 20px; /* Space between student-info and button */
-        }
-        .download-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #8e0c00;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .download-button:hover {
-            background-color: #6b0900;
-        }
+
+.student-info {
+    background-color: #f4f4f4; /* Light background color */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px; /* Reduced padding */
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Maximum width to maintain the rectangular shape */
+    margin: 10px auto; /* Reduced margin for centering */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center text in student-info box */
+}
+
+.student-info h2 {
+    margin-top: 0;
+    color: #8e0c00; /* Match header/footer color */
+    border-bottom: 2px solid #8e0c00; /* Underline effect */
+    padding-bottom: 8px; /* Reduced padding */
+}
+
+.student-info .info-row {
+    display: flex;
+    justify-content: center; /* Center align items horizontally */
+    align-items: center;
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.student-info .info-row label {
+    margin-right: 10px; /* Reduced margin */
+    font-weight: bold;
+    color: #000000; /* Match header/footer color */
+}
+
+.student-info .bordered-label {
+    border: 1px solid #8e0c00; /* Match header/footer color */
+    padding: 4px 8px; /* Reduced padding */
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center; /* Center text within the label */
+    min-width: 150px; /* Adjusted minimum width */
+}
+
+.button-container {
+    text-align: center; /* Center the button container */
+    margin-top: 10px; /* Reduced margin */
+}
+
+.download-button {
+    display: inline-block;
+    padding: 8px 16px; /* Reduced padding */
+    background-color: #8e0c00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px; /* Adjusted font size */
+}
+
+.download-button:hover {
+    background-color: #6b0900;
+}
+
     </style>
 </head>
 <body>
     <header>
-      
+        
         <h1>DYKAN COLLEGE</h1>
         <p>
             P.O. Box 14436-00100<br>
@@ -104,9 +124,11 @@
             Westlands, General Mathenge Drive
         </p>
     </header>
-	<body>
-    <p class="styled-label">dykancollege/student-portal/packages/Sharon-Mwende/download-certificate</p>
-</body>
+
+    <div class="styled-label-container">
+        <p class="styled-label">/student-portal/packages/Sharon-Mwende/download-certificate</p>
+    </div>
+
     <div class="content">
         <div class="student-info">
             <h2>Student Information</h2>
@@ -132,6 +154,7 @@
             <a href="https://drive.google.com/uc?export=download&id=17gmCn6_xCLes2AMQrI8CJbdZB36X_-0q" class="download-button" download>Download Certificate</a>
         </div>
     </div>
+
     <footer>
         <p class="footer-content">© 2024 DYKAN COLLEGE | All rights reserved</p>
         <p class="footer-content">Westlands, General Mathenge Drive</p>
