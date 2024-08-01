@@ -168,6 +168,12 @@
                 padding: 10px;
                 font-size: 14px;
             }
+			   }
+        .datetime {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+       
         }
     </style>
 </head>
@@ -180,6 +186,47 @@
             info@dykan.ac.ke<br>
             Westlands, General Mathenge Drive
         </p>
+		<body>
+    <div class="datetime" id="datetime"></div>
+    <script>
+        function getOrdinalSuffix(day) {
+            if (day > 3 && day < 21) return 'th';
+            switch (day % 10) {
+                case 1: return 'st';
+                case 2: return 'nd';
+                case 3: return 'rd';
+                default: return 'th';
+            }
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            const day = now.getDate();
+            const month = now.toLocaleString('default', { month: 'long' });
+            const year = now.getFullYear();
+            const ordinalSuffix = getOrdinalSuffix(day);
+            const timeString = now.toLocaleTimeString();
+            const dateTimeString = `${day}${ordinalSuffix} ${month} ${year}, ${timeString}`;
+            document.getElementById('datetime').textContent = dateTimeString;
+        }
+
+        function startCountdown(seconds) {
+            let counter = seconds;
+            const interval = setInterval(() => {
+                document.getElementById('seconds').textContent = counter;
+                counter--;
+                if (counter < 0) {
+                    clearInterval(interval);
+                    document.getElementById('countdown').textContent = 'Countdown Complete!';
+                }
+            }, 1000);
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 1000);  // Update date and time every second
+        startCountdown(10);  // Start the countdown from 10 seconds
+    </script>
+</body>
     </header>
 
     <div class="styled-label-container">
