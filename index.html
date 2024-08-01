@@ -3,58 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Viewer</title>
+    <title>Embedded Google Form</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             background-color: #f0f0f0;
         }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        button {
-            margin: 20px;
-            padding: 10px 20px;
+        iframe {
+            width: 80%;
+            height: 80%;
             border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        #pdfViewer {
-            width: 100%;
-            height: 500px;
-            border: none;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>View Your Certificate</h2>
-        <button onclick="viewCertificate()">CERTIFICATE</button>
-        <iframe id="pdfViewer" style="display: none;"></iframe>
-    </div>
-
-    <script>
-        function viewCertificate() {
-            const pdfViewer = document.getElementById('pdfViewer');
-            pdfViewer.src = 'https://drive.google.com/file/d/17gmCn6_xCLes2AMQrI8CJbdZB36X_-0q/view?usp=drive_link';
-            pdfViewer.style.display = 'block';
-        }
-    </script>
+    <iframe src="https://forms.gle/JStejLPBkSm1hpqq9"></iframe>
 </body>
 </html>
