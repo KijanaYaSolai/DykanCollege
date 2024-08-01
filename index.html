@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <img src="dykanlogo.png" alt="Dykan College Logo" class="logo">
     <title>DYKAN COLLEGE</title>
     <style>
         body {
@@ -11,40 +12,17 @@
             background-color: #ffff;
         }
 
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px; /* Adjust as needed for spacing */
-        }
-
-        .logo {
-            width: 150px; /* Adjust the width as needed */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        header {
+        header, footer {
             background-color: #8e0c00;
             color: white;
             text-align: center;
             padding: 20px;
-            position: relative; /* For positioning the datetime */
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 50px;
-        }
-
-        header p {
-            margin: 5px 0; /* Reduce margin for better spacing */
-        }
-
-        .datetime {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 14px;
+        .logo {
+            display: block;
+            margin: 0 auto;
+            max-width: 150px;
         }
 
         .content {
@@ -53,9 +31,7 @@
         }
 
         footer {
-            background-color: #8e0c00;
-            color: white;
-            text-align: center;
+            width: 100%;
             padding: 10px 20px;
         }
 
@@ -134,8 +110,8 @@
             border-radius: 4px;
             text-decoration: none;
             font-size: 14px;
-            width: 100%;
-            max-width: 300px;
+            width: 100%; /* Make the button responsive */
+            max-width: 300px; /* Maximum width to prevent it from being too wide */
             box-sizing: border-box;
         }
 
@@ -143,7 +119,7 @@
             background-color: #6b0900;
         }
 
-        @media (max-width: 150px) {
+        @media (max-width: 768px) {
             header, footer {
                 padding: 10px;
             }
@@ -171,7 +147,7 @@
             }
         }
 
-        @media (max-width: 150px) {
+        @media (max-width: 480px) {
             .student-info .info-row {
                 flex-direction: column;
                 align-items: flex-start;
@@ -192,31 +168,65 @@
                 padding: 10px;
                 font-size: 14px;
             }
-        }
-
+			   }
         .datetime {
             font-size: 1em;
             margin-bottom: 20px;
         }
-        
-        .countdown {
-            font-size: 1.5em;
+       
         }
     </style>
 </head>
 <body>
-    <div class="logo-container">
-        <img src="dykanlogo.png" alt="Dykan College Logo" class="logo">
-    </div>
-
     <header>
+        
         <h1>DYKAN COLLEGE</h1>
         <p>
             P.O. Box 14436-00100<br>
             info@dykan.ac.ke<br>
             Westlands, General Mathenge Drive
         </p>
-        <div class="datetime" id="datetime"></div>
+		<body>
+    <div class="datetime" id="datetime"></div>
+    <script>
+        function getOrdinalSuffix(day) {
+            if (day > 3 && day < 21) return 'th';
+            switch (day % 10) {
+                case 1: return 'st';
+                case 2: return 'nd';
+                case 3: return 'rd';
+                default: return 'th';
+            }
+        }
+
+        function updateDateTime() {
+            const now = new Date();
+            const day = now.getDate();
+            const month = now.toLocaleString('default', { month: 'long' });
+            const year = now.getFullYear();
+            const ordinalSuffix = getOrdinalSuffix(day);
+            const timeString = now.toLocaleTimeString();
+            const dateTimeString = `${day}${ordinalSuffix} ${month} ${year}, ${timeString}`;
+            document.getElementById('datetime').textContent = dateTimeString;
+        }
+
+        function startCountdown(seconds) {
+            let counter = seconds;
+            const interval = setInterval(() => {
+                document.getElementById('seconds').textContent = counter;
+                counter--;
+                if (counter < 0) {
+                    clearInterval(interval);
+                    document.getElementById('countdown').textContent = 'Countdown Complete!';
+                }
+            }, 1000);
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 1000);  // Update date and time every second
+        startCountdown(10);  // Start the countdown from 10 seconds
+    </script>
+</body>
     </header>
 
     <div class="styled-label-container">
@@ -253,31 +263,5 @@
         <p class="footer-content">© 2024 DYKAN COLLEGE | All rights reserved</p>
         <p class="footer-content">Westlands, General Mathenge Drive</p>
     </footer>
-
-    <script>
-        function getOrdinalSuffix(day) {
-            if (day > 3 && day < 21) return 'th';
-            switch (day % 10) {
-                case 1: return 'st';
-                case 2: return 'nd';
-                case 3: return 'rd';
-                default: return 'th';
-            }
-        }
-
-        function updateDateTime() {
-            const now = new Date();
-            const day = now.getDate();
-            const month = now.toLocaleString('default', { month: 'long' });
-            const year = now.getFullYear();
-            const ordinalSuffix = getOrdinalSuffix(day);
-            const timeString = now.toLocaleTimeString();
-            const dateTimeString = `${day}${ordinalSuffix} ${month} ${year}, ${timeString}`;
-            document.getElementById('datetime').textContent = dateTimeString;
-        }
-
-        updateDateTime();
-        setInterval(updateDateTime, 1000);  // Update date and time every second
-    </script>
 </body>
 </html>
